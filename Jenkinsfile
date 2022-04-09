@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        registry = "sanir456/scientific-calculator-devopstools-webapp"
+        registryCredential = 'docker-cred'
+        dockerImage = ''
+    }
     agent any
     stages {
         stage('step 1 Git') {
@@ -15,8 +20,15 @@ pipeline {
 
         stage('step 3 Test') {
             steps {
-                // Unit testing on compiled source code.
                 sh "mvn test"
+            }
+        }
+
+        stage('step 4 Building docker image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":latest"
+                }
             }
         }
     }
