@@ -8,6 +8,6 @@
         image: sanir456/scientific-calculator-devopstools-webapp
         state: started
         ports:
-          - "8090:8090"
+          - "8085:8085"
         tty: true
         detach: true
