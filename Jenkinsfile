@@ -12,5 +12,12 @@ pipeline {
                 sh "mvn -B -DskipTests clean package"
             }
         }
+
+        stage('step 3 Test') {
+            steps {
+                // Unit testing on compiled source code.
+                sh "mvn test"
+            }
+        }
     }
 }
