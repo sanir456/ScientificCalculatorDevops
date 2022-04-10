@@ -1,13 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>SPE - Scientific Calculator</title>
+    <title>JSP - Hello World</title>
+    <script src="../static/main.js"></script>
+    <link rel="stylesheet" href="../static/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
 </head>
-<body>
-<h1> SPE - Scientific Calculator </h1>
+
+<script>
 
 
-<p> This is Scientific Calculator using devops tool, CI/CD pipelne and elk stack monitring </p>
+    function cls(){
+        console.log("in clear")
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+        document.getElementById("result").value = "";
+    }
+    async function power() {
+        const Input1 = document.getElementById("input1").value;
+        const Input2 = document.getElementById("input2").value;
+        console.log(Input1);
+        console.log(Input2);
+        fetch('http://localhost:8083/power', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                input1:Input1,
+                input2:Input2
+            })
+        }).then(response => response.json())
+            .then((data) => {
+                document.getElementById("result").value = data
+            });
+
+
+    }
+
+    async function sqrt() {
+        const Input1 = document.getElementById("input1").value;
+        fetch('http://localhost:8083/sqrt', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                input1:Input1,
+
+            })
+        }).then(response => response.json())
+            .then((data) => {
+                document.getElementById("result").value = data;
+            });
+    }
+    async function log() {
+        const Input1 = document.getElementById("input1").value;
+        fetch('http://localhost:8083/log', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                input1:Input1,
+            })
+        }).then(response => response.json())
+            .then((data) => {
+                document.getElementById("result").value = data;
+            });
+    }
+    async function fact() {
+        const Input1 = document.getElementById("input1").value;
+        fetch('http://localhost:8083/fact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                input1:Input1,
+            })
+        }).then(response => response.json())
+            .then((data) => {
+                document.getElementById("result").value = data;
+            });
+    }
+</script>
+
+<body  class="m-auto mt-5">
+<style>
+    .title{
+        margin-bottom: 10px;
+        text-align:center;
+        border-radius: 5px;
+        border:solid black;
+    }
+
+    .calc {
+        border-radius: 5px;
+        border:solid black;
+    }
+    body {
+        width: 20%;
+
+    }
+
+    button {
+        width: 100%;
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+</style>
+
+
+<div class="title mt-3">
+    <p>Scientific Calculater DevOps Implimentation</p>
+</div>
+<div class="calc p-3">
+    <div class="form-group">
+        <label for="input1">Number 1</label>
+        <input type="text" name="input1" id="input1" class="form-control" placeholder="number 1">
+    </div>
+
+    <div class="form-group">
+        <label for="input2">Numbet 2</label>
+        <input type="text" name="input2" id="input2" class="form-control" placeholder="number 2">
+    </div>
+
+    <div class="form-group">
+        <label for="result">Result</label>
+        <input type="text" name="result" id="result" class="form-control" placeholder="result">
+    </div>
+    <div class="row">
+        <div class="col-6 p-1">
+            <button name="log" id="log"   onclick="log()">
+                log
+            </button>
+        </div>
+        <div class="col-6 p-1">
+            <button name="sqrt" id="sqrt"  onclick="sqrt()">
+                sqrt
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 p-1">
+            <button name="power" id="power"  onclick="power()">
+                power
+            </button>
+        </div>
+        <div class="col-6 p-1">
+            <button name="fact" id="fact"  onclick="fact()">
+                fact
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 p-2">
+            <button name="clear" id="clear"  onclick="cls()">
+                clear
+            </button>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
