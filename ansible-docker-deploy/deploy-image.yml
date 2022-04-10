@@ -4,5 +4,5 @@
   tasks:
     - name: Pull app devops image
       docker_image:
-        name: sanir456/scientific-calculator-devopstools-webapp
+        name: ehrazhasan/scientificalculator
         source: pull
