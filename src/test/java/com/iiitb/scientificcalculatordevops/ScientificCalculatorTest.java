@@ -40,8 +40,8 @@ public class ScientificCalculatorTest {
         payload2.put("input1",(Object) new String("10"));
         payload2.put("input2",(Object) new String("2"));
 
-        assertEquals("Squaring a number for False Positive", 100, calculator.power(payload1), DELTA);
-        assertEquals("Squaring a number for False Positive", 32, calculator.power(payload2), DELTA);
+        assertNotEquals("Squaring a number for False Positive", 100, calculator.power(payload1), DELTA);
+        assertNotEquals("Squaring a number for False Positive", 32, calculator.power(payload2), DELTA);
 
     }
 
@@ -78,8 +78,8 @@ public class ScientificCalculatorTest {
         Map<String,Object> payload2 = new HashMap();
         payload2.put("input1",(Object) new String( "10000"));
 
-        assertNotEquals("Squaring a number for False Positive", 10, calculator.log(payload1), DELTA);
-        assertNotEquals("Squaring a number for False Positive", 100, calculator.log(payload2), DELTA);
+        assertEquals("Squaring a number for False Positive", 10, calculator.log(payload1), DELTA);
+        assertEquals("Squaring a number for False Positive", 100, calculator.log(payload2), DELTA);
 
     }
 
@@ -106,8 +106,8 @@ public class ScientificCalculatorTest {
         Map<String,Object> payload2 = new HashMap();
         payload2.put("input1",(Object) new String( "6"));
 
-        assertNotEquals("Squaring a number for False Positive", 24, calculator.log(payload1), DELTA);
-        assertNotEquals("Squaring a number for False Positive", 720, calculator.log(payload2), DELTA);
+        assertEquals("Squaring a number for False Positive", 24, calculator.log(payload1), DELTA);
+        assertEquals("Squaring a number for False Positive", 720, calculator.log(payload2), DELTA);
 
     }
 
