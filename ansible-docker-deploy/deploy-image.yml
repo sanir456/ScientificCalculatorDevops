@@ -12,4 +12,4 @@
         name: sanir456/scientific-calculator-devopstools-webapp
         source: pull
     - name: create web container
-      shell: docker run -d -p 8085:8085 --name calculator sanir456/scientific-calculator-devopstools-webapp
+      shell: docker run -d -p 8085:8085 --name calculator sanir456/scientific-calculator-devopstools-webapp:latest
