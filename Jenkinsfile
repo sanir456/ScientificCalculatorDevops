@@ -6,25 +6,25 @@ pipeline {
     }
     agent any
     stages {
-        stage('step 1 Git') {
+        stage('stage-1 Git pull') {
             steps {
                  git url: 'https://github.com/sanir456/ScientificCalculatorDevops.git', branch: 'master',
                  credentialsId: 'git-cred'
             }
         }
-        stage('step 2 Build maven') {
+        stage('stage-2 Build maven project') {
             steps {
                 sh "mvn -B -DskipTests clean package"
             }
         }
 
-        stage('step 3 Test') {
+        stage('stage-3 Test build project') {
             steps {
                 sh "mvn test"
             }
         }
 
-        stage('step 4 Building docker image') {
+        stage('stage-4 Build docker image in local machine') {
             steps{
                 script {
                     dockerImage = docker.build registry + ":latest"
@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        stage('step 5 Push docker image to dockerhub') {
+        stage('stage- 5 Push docker image to dockerhub') {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
@@ -41,7 +41,7 @@ pipeline {
                 }
             }
         }
-        stage('Step 6 Ansible image deploy'){
+        stage('Stage 6 deploy image from dockerhub to ubuntu18 server'){
             steps{
                 ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'ansible-docker-deploy/inventory', playbook: 'ansible-docker-deploy/deploy-image.yml', sudoUser: null
                 }
