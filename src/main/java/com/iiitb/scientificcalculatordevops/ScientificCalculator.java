@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 public class ScientificCalculator {
-    private static final Logger logger = LogManager.getLogger(ScientificCalculator.class);
+    private static final Logger logger = LogManager.getLogger("ScientificCalculator");
 
     @RequestMapping(value = "/power",method = RequestMethod.POST)
     public double power(@RequestBody Map<String,Object> payload){

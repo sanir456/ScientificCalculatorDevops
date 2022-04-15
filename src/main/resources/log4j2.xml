@@ -11,15 +11,13 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.spe" level="debug" additivity="false">
+        <Logger name="ScientificCalculator" level="debug" additivity="false">
             <AppenderRef ref="LogToFile"/>
-            <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Logger name="org.springframework.boot" level="error" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">
-            <AppenderRef ref="LogToFile"/>
             <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>
