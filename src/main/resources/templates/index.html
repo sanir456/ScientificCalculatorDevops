@@ -24,7 +24,7 @@
         const Input2 = document.getElementById("input2").value;
         console.log(Input1);
         console.log(Input2);
-        fetch('http://172.16.134.246:8085/power', {
+        fetch('http://calculator:8085/power', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -43,7 +43,7 @@
 
     async function sqrt() {
         const Input1 = document.getElementById("input1").value;
-        fetch('http://172.16.134.246:8085/sqrt', {
+        fetch('http://calculator:8085/sqrt', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -59,7 +59,7 @@
     }
     async function log() {
         const Input1 = document.getElementById("input1").value;
-        fetch('http://172.16.134.246:8085/log', {
+        fetch('http://calculator:8085/log', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -74,7 +74,7 @@
     }
     async function fact() {
         const Input1 = document.getElementById("input1").value;
-        fetch('http://172.16.134.246:8085/fact', {
+        fetch('http://calculator:8085/fact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
