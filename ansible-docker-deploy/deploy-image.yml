@@ -2,7 +2,14 @@
 - name: Pull docker image of app
   hosts: all
   tasks:
+    - name: remove stopped container
+      shell: docker rm -vf $(docker ps -aq) || true
+    - name: remove docker images
+      shell: docker rmi -f $(docker images -aq) || true
+
     - name: Pull app devops image
       docker_image:
-        name: ehrazhasan/scientificalculator
+        name: sanir456/scientific-calculator-devopstools-webapp
         source: pull
+    - name: create web container
+      shell: docker run -d -p 8085:8085 --name calculator sanir456/scientific-calculator-devopstools-webapp:latest
