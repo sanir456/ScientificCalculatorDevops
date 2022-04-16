@@ -19,7 +19,6 @@ public class ScientificCalculator {
         double res;
         double input1 = Double.parseDouble((String) payload.get("input1"));
         double input2 = Double.parseDouble((String) payload.get("input2"));
-        logger.info();
         res = Math.pow(input1,input2);
         logger.info("[POWER] - [data] :" + input1 + "^"+input2 + " - [RESULT] : " + res);
         return res  ;
