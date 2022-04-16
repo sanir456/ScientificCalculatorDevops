@@ -14,7 +14,6 @@
         </Logger>
         <Root level="info">
             <AppenderRef ref="ConsoleAppender"/>
-
         </Root>
     </Loggers>
 </Configuration>
