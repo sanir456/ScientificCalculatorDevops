@@ -5,9 +5,9 @@
     - name: web container
       docker_container:
         name: testcalci
-        image: ehrazhasan/scientificalculator
+        image: sanir456/scientific-calculator-devopstools-webapp
         state: started
         ports:
-          - "8081:8081"
+          - "8085:8085"
         tty: true
         detach: true
